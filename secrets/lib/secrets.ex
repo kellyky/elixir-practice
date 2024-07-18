@@ -12,7 +12,7 @@ defmodule Secrets do
   end
 
   def secret_divide(secret) do
-    fn x -> trunc(x / secret) end
+    fn x -> div(x, secret) end
   end
 
   def secret_and(secret) do
