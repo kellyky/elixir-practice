@@ -21,6 +21,6 @@ defmodule LanguageList do
   end
 
   def functional_list?(list) do
-    Enum.any?(list, fn language -> language == "Elixir" end)
+    "Elixir" in list
   end
 end
