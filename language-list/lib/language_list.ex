@@ -7,13 +7,12 @@ defmodule LanguageList do
     [language | list]
   end
 
-  def remove(list) do
-    first_language = first(list)
-    List.delete(list, first_language)
+  def remove([_ | tail]) do
+    tail
   end
 
-  def first(list) do
-    hd(list)
+  def first([head|_]) do
+    head
   end
 
   def count(list) do
