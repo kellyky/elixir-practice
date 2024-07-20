@@ -19,6 +19,8 @@ defmodule KitchenCalculator do
   def from_milliliter({_, volume}, :teaspoon), do: {:teaspoon, volume / @milliliters_per_teaspoon}
 
   def convert(volume_pair, unit) do
-    from_milliliter(to_milliliter(volume_pair), unit)
+    volume_pair
+    |> to_milliliter()
+    |> from_milliliter(unit)
   end
 end
