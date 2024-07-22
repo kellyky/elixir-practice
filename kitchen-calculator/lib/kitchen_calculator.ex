@@ -4,7 +4,7 @@ defmodule KitchenCalculator do
   @milliliters_per_tablespoon 15
   @milliliters_per_teaspoon 5
 
-  def get_volume(volume_pair), do: elem(volume_pair, 1)
+  def get_volume({unit, v}) when unit in [:milliliter, :teaspoon, :tablespoon, :fluid_ounce, :cup], do: v
 
   def to_milliliter(v = {:milliliter, _}), do: v
   def to_milliliter({:cup, cups}), do: {:milliliter, cups * @milliliters_per_cup}
