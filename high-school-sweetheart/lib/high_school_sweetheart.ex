@@ -14,32 +14,28 @@ defmodule HighSchoolSweetheart do
   def initials(full_name) do
     full_name
     |> String.split(" ")
-    |> Enum.map_join(" ", fn name -> initial(name) end)
+    |> Enum.map_join(" ", &initial/1)
   end
 
   def pair(full_name1, full_name2) do
-    both_initials = initials(full_name1) <> "  +  " <> initials(full_name2)
-    initials_string = "**" <> "     " <> both_initials <> "     "<>"**"
+    i1 = initials(full_name1)
+    i2 = initials(full_name2)
 
-    heart_lines = [
-        "     ******       ******",
-        "   **      **   **      **",
-        " **         ** **         **",
-        "**            *            **",
-        "**                         **",
-        initials_string,
-        " **                       **",
-        "   **                   **",
-        "     **               **",
-        "       **           **",
-        "         **       **",
-        "           **   **",
-        "             ***",
-        "              *"
-    ]
-
-    heart_lines
-    |> Enum.join("\n")
-    |> Kernel.<>("\n")
+    """
+         ******       ******
+       **      **   **      **
+     **         ** **         **
+    **            *            **
+    **                         **
+    **     #{i1}  +  #{i2}     **
+     **                       **
+       **                   **
+         **               **
+           **           **
+             **       **
+               **   **
+                 ***
+                  *
+    """
   end
 end
