@@ -2,7 +2,7 @@ defmodule HighSchoolSweetheart do
   def first_letter(name) do
     name
     |> String.trim()
-    |> String.at(0)
+    |> String.first()
   end
 
   def initial(name) do
